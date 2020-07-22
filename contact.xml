@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contacts>
+	<contact id="1">
+		<name>Rajveer</name>
+        <email>rajveer@231gmail.com</email>
+        <phone>9082652522</phone>
+        <title>	
+Employee</title>
+        <created>2019-05-08 17:28:44</created>
+	</contact>
+	<contact id="2">
+		<name>Sandeep</name>
+        <email>sandeep420@gamil.com</email>
+        <phone>6789878654</phone>
+        <title>Manager</title>
+        <created>	
+2019-05-09 19:21:00</created>
+	</contact>
+    <contact id="3">
+        <name>Raghav</name>
+        <email>raghu215@gmail.com</email>
+        <phone>9867459875</phone>
+        <title>Assistant</title>
+        <created>2019-05-09 19:20:00</created>
+    </contact>
+    <contact id="4">
+        <name>Abhishek</name>
+        <email>abhi@31@gmail.com</email>
+        <phone>8922020098</phone>
+        <title>	
+Employee</title>
+        <created>2019-05-09 19:16:00</created>   
+    </contact>
+</contacts>
