@@ -10,7 +10,16 @@ if(isset($_FILES['file']['name']) &&  $_FILES['file']['name'] != '')
  $file_extension = end($file_data);
  if(in_array($file_extension, $valid_extension))
  {
-  $data = simplexml_load_file($_FILES['file']['tmp_name']);
+    $doc = new DOMDocument; 
+    
+// Load the XML 
+$doc->loadXML("$_FILES['file']['tmp_name']"); 
+  
+// Check if XML follows the rule 
+if ($doc->schemaValidate('employee.xsd')) { 
+  //  echo "This document is valid!\n"; 
+ 
+  //$data = simplexml_load_file($_FILES['file']['tmp_name']);
   $connect = new PDO('mysql:host=localhost;dbname=testing','root', '');
   $query = "
   INSERT INTO employee 
