@@ -1,72 +1,80 @@
 <?php
-//index.php
-include 'functions.php';
+require 'database.php';
+$conn = new PDO("mysql:host=localhost;dbname=phpcrud", 'root', '');
+if(isset($_POST['buttonImport'])) {
+// Create a new DOMDocument 
+$doc = new DOMDocument; 
+// XSD schema 
+$XSD = "<?xml version=\"1.0\" encoding=\"utf-8\"?>
+<xs:schema attributeFormDefault=\"unqualified\" elementFormDefault=\"qualified\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">
+  <xs:element name=\"products\">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs=\"unbounded\" name=\"product\">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name=\"id\" type=\"xs:string\" />
+              <xs:element name=\"name\" type=\"xs:string\" />
+              <xs:element name=\"price\" type=\"xs:unsignedShort\" />
+              <xs:element name=\"quantity\" type=\"xs:unsignedByte\" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>";
+
+// Load the XML 
+$st="C:/xampp/htdocs/PROJECT-IMPORT-XML-USING-PHP/.$_FILES[xmlFile][name]";
+$doc->loadXML($st); 
+  
+//echo "all ok";
+if ($doc->schemaValidateSource($XSD)) { 
+    echo "This document is valid!\n"; 
+    
+} 
+
+   // echo realpath($_FILES['xmlFile']['tmp_name']);
+	copy($_FILES['xmlFile']['tmp_name'],
+		'C:/xampp/htdocs/PROJECT-IMPORT-XML-USING-PHP/'.$_FILES['xmlFile']['name']);
+	$products = simplexml_load_file('C:/xampp/htdocs/PROJECT-IMPORT-XML-USING-PHP/'.$_FILES['xmlFile']['name']);
+	foreach($products as $product){
+		$stmt = $conn->prepare('insert into
+			prod(id, name, price, quantity)
+			values(:id, :name, :price, :quantity)');
+		$stmt->bindValue('id', $product->id);
+		$stmt->bindValue('name', $product->name);
+		$stmt->bindValue('price', $product->price);
+		$stmt->bindValue('quantity', $product->quantity);
+		$stmt->execute();
+	}
+}
+
+$stmt = $conn->prepare('select * from prod');
+$stmt->execute();
 ?>
-<?=template_header('Home')?>
-<!DOCTYPE html>
-<html>
- <head>
-  <title>Import XML Data</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
- <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />-->
-  <link href="style.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
- </head>
- <body>
- 
-  <br />
-  <div class="container">
-   <div class="row">
-   
-    <br />
-    <div class="col-md-9" style="margin:0 auto; float:none;">
-     <span id="message"></span>
-     <form method="post" id="import_form" enctype="multipart/form-data">
-      <div class="form-group">
-       <label>Select XML File</label>
-       <input type="file" name="file" id="file" />
-      </div>
-      <br />
-      <div class="form-group">
-       <input type="submit" name="submit" id="submit" class="btn btn-info" value="Import" />
-      </div>
-     </form>
-    </div>
-   </div>
-  </div>
- 
- </body>
-</html>
-<script>
-$(document).ready(function(){
- $('#import_form').on('submit', function(event){
-  event.preventDefault();
 
-  $.ajax({
-   url:"import.php",
-   method:"POST",
-   data: new FormData(this),
-   contentType:false,
-   cache:false,
-   processData:false,
-   beforeSend:function(){
-    $('#submit').attr('disabled','disabled'),
-    $('#submit').val('Importing...');
-   },
-   success:function(data)
-   {
-    $('#message').html(data);
-    $('#import_form')[0].reset();
-    $('#submit').attr('disabled', false);
-    $('#submit').val('Import');
-   }
-  })
-
-  setInterval(function(){
-   $('#message').html('');
-  }, 5000);
-
- });
-});
-</script>
-<?=template_footer()?>
+<form method="post" enctype="multipart/form-data">
+	XML File <input type="file" name="xmlFile">
+	<br>
+	<input type="submit" value="Import" name="buttonImport">
+</form>
+<br>
+<h3>Product List</h3>
+<table cellpadding="2" cellspacing="2" border="1">
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Price</th>
+		<th>Quantity</th>
+	</tr>
+	<?php while($product = $stmt->fetch(PDO::FETCH_OBJ)) { ?>
+	<tr>
+		<td><?php echo $product->id; ?></td>
+		<td><?php echo $product->name; ?></td>
+		<td><?php echo $product->price; ?></td>
+		<td><?php echo $product->quantity; ?></td>
+	</tr>
+	<?php } ?>
+</table>
