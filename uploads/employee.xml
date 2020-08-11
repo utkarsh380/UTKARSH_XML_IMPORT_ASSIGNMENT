@@ -1,0 +1,142 @@
+<employees>
+ <employee>
+  <name>William T. Strauss</name>
+  <address>2210 Roosevelt Road Pittsburg, KS 66762</address>
+  <gender>Male</gender>
+  <designation>Transmission technician</designation>
+  <age>42</age>
+ </employee>
+ <employee>
+  <name>David N. Bateman</name>
+  <address>3729 Sycamore Fork Road Miami, FL 33176</address>
+  <gender>Male</gender>
+  <designation>Vegetable cook</designation>
+  <age>44</age>
+ </employee>
+ <employee>
+  <name>Gail P. Robinson</name>
+  <address>991 Ashmor Drive Crookston, MN 56716</address>
+  <gender>Female</gender>
+  <designation>Personnel administrator</designation>
+  <age>51</age>
+ </employee>
+ <employee>
+  <name>James M. Cardin</name>
+  <address>120 Kuhl Avenue Atlanta, GA 30303</address>
+  <gender>Male</gender>
+  <designation>Switchboard operator</designation>
+  <age>21</age>
+ </employee>
+ <employee>
+  <name>Jason K. Peterson</name>
+  <address>1029 Lords Way Memphis, TN 38118</address>
+  <gender>Male</gender>
+  <designation>Pediatrician</designation>
+  <age>43</age>
+ </employee>
+ <employee>
+  <name>Penni G. Vazquez</name>
+  <address>1545 Whiteman Street Camden, NJ 08102</address>
+  <gender>Female</gender>
+  <designation>Tractor driver</designation>
+  <age>33</age>
+ </employee>
+ <employee>
+  <name>David A. Davis</name>
+  <address>617 Spirit Drive Port Orange, FL 32019</address>
+  <gender>Male</gender>
+  <designation>Oncology nurse</designation>
+  <age>34</age>
+ </employee>
+ <employee>
+  <name>Kimberly J. Hemingway</name>
+  <address>4874 Lynn Street Woburn, MA 01801</address>
+  <gender>Female</gender>
+  <designation>Leasing manager</designation>
+  <age>32</age>
+ </employee>
+ <employee>
+  <name>Corine C. Conner</name>
+  <address>1595 Meadowview Drive Fredericksburg, VA 22408</address>
+  <gender>Female</gender>
+  <designation>Model</designation>
+  <age>22</age>
+ </employee>
+ <employee>
+  <name>Ben A. Champagne</name>
+  <address>3736 Hartland Avenue Appleton, WI 54913</address>
+  <gender>Male</gender>
+  <designation>Commentator</designation>
+  <age>21</age>
+ </employee>
+ <employee>
+  <name>Mary J. Smith</name>
+  <address>727 Alexander Drive Arlington, TX 76011</address>
+  <gender>Female</gender>
+  <designation>Safety inspector</designation>
+  <age>35</age>
+ </employee>
+ <employee>
+  <name>Buford R. Quinn</name>
+  <address>2717 McDowell Street Nashville, TN 37210</address>
+  <gender>Male</gender>
+  <designation>Log debarker</designation>
+  <age>23</age>
+ </employee>
+ <employee>
+  <name>Lawrence P. Walters</name>
+  <address>4488 Stratford Court Rocky Mount, NC 27801</address>
+  <gender>Male</gender>
+  <designation>Mechanical drafter</designation>
+  <age>26</age>
+ </employee>
+ <employee>
+  <name>Armando T. Trainor</name>
+  <address>1272 Small Street New York, NY 10016</address>
+  <gender>Male</gender>
+  <designation>Clinical laboratory technologist</designation>
+  <age>21</age>
+ </employee>
+ <employee>
+  <name>Cathy H. Maldonado</name>
+  <address>287 Lakeland Terrace Southfield, MI 48075</address>
+  <gender>Female</gender>
+  <designation>Dipper</designation>
+  <age>31</age>
+ </employee>
+ <employee>
+  <name>Elizabeth M. Manning</name>
+  <address>2398 Wines Lane Houston, TX 77032</address>
+  <gender>Female</gender>
+  <designation>Hearing therapist</designation>
+  <age>34</age>
+ </employee>
+ <employee>
+  <name>Jon B. Parker</name>
+  <address>4317 Stuart Street Saxonsburg, PA 16056</address>
+  <gender>Male</gender>
+  <designation>Watch repairer</designation>
+  <age>28</age>
+ </employee>
+ <employee>
+  <name>Lindsey C. Myers</name>
+  <address>3529 Confederate Drive Earlville, NY 13332</address>
+  <gender>Male</gender>
+  <designation>Cleaner</designation>
+  <age>42</age>
+ </employee>
+ <employee>
+  <name>Stephen T. Armijo</name>
+  <address>2488 Confederate Drive Syracuse, NY 13202</address>
+  <gender>Male</gender>
+  <designation>Legal secretary</designation>
+  <age>46</age>
+ </employee>
+ <employee>
+  <name>Estelle A. Sawyer</name>
+  <address>2613 Creekside Lane Santa Barbara, CA 93178</address>
+  <gender>Female</gender>
+  <designation>Dispatcher</designation>
+  <age>39</age>
+ </employee>
+</employees>
